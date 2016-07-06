@@ -12,9 +12,22 @@
               // tip: var smth = prompt("Please enter value", "Default value");
               - Other variables should be set as you wish
               - Join all values to one sentence and show it in console
-            // example: Valera has a meeting today at 17:00 somewhere in Warsaw.
+              // example: Valera has a meeting today at 17:00 somewhere in Warsaw.
         </pre>
         <button onclick="init_1_e(); return false;" >Выполнить 1е задание</button>
+    </div>
+    <hr>
+    <div>
+        <pre>
+            2. Find and show (using alert) distance between 2 points.
+              - Create variables for x1, y1, x2, y2, result
+              - Coordinates of second point (X2, Y2) should be entered using prompt
+              - Other variables should be set as you wish
+              - Find distance, set it to result variable
+              - Alert the result with description
+              // example: The distance between points A(0,1) and B(0,11) is 10.
+        </pre>
+        <button onclick="init_2_e(); return false;" >Выполнить 2е задание</button>
     </div>
     <hr>
 </body>
@@ -22,17 +35,42 @@
     function init_1_e(){
         var string = null;
         var object = {
-            user_name: {value: null, d_value: 'Valera', prompt: 'Please enter User name'}, 
-            time:      {value: null, d_value: 'today at 17:00', prompt: 'Please enter Event Time'},  
-            place:     {value: null, d_value: 'somewhere in Warsaw', prompt: 'Please enter Event Place'}, 
+            user_name: {value: null, d_value: 'Valera', prompt: 'Please enter User name'},
+            time:      {value: null, d_value: 'today at 17:00', prompt: 'Please enter Event Time'},
+            place:     {value: null, d_value: 'somewhere in Warsaw', prompt: 'Please enter Event Place'},
             event:     {value: null, d_value: 'has a meeting', prompt: 'Please enter Event Name'},
         };
-        for(el in object) {
-            while(!object[el]['value']) { 
+        for(var el in object) {
+            while(object[el]['value'] === null) { 
                 object[el]['value'] = prompt(object[el]['prompt'], object[el]['d_value']);
             }
         }
-        string = Object.keys(object).map(function(k){return object[k]['value']}).join(' ')
+        string = Object.keys(object).map(function(k){return object[k]['value']}).join(' ');
+        console.log(string);
+        alert(string);
+    }
+    
+    function init_2_e(){
+        var result = '';
+        var string = '';
+        var object = {
+            x1: {value: null, d_value: '0',  prompt: 'Please enter x1 coords'},
+            y1: {value: null, d_value: '1',  prompt: 'Please enter y1 coords'},
+            x2: {value: null, d_value: '0',  prompt: 'Please enter x2 coords'},
+            y2: {value: null, d_value: '11', prompt: 'Please enter y2 coords'},
+        };
+        
+        for(var el in object) {
+            while(object[el]['value'] === null) { 
+                object[el]['value'] = Number(prompt(object[el]['prompt'], object[el]['d_value']));
+            }
+        }
+
+        var p_1 =  object['x2']['value'] - object['x1']['value']
+        var p_2 = object['y2']['value'] - object['y1']['value']
+        result = Math.sqrt(p_1 * p_1 + p_2 * p_2)
+        
+        string = 'The distance between points A('+object['x1']['value']+','+object['y1']['value']+') and B('+object['x2']['value']+','+object['y2']['value']+') is ' +result
         console.log(string)
         alert(string)
     }
