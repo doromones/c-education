@@ -47,6 +47,20 @@
         <button onclick="init_3_e(); return false;" >Выполнить 3е задание</button>
     </div>
     <hr>
+    <div>
+        <pre>
+            4. Show in console using WHILE.
+              # # # # #
+               # # # # #
+              # # # # #
+               # # # # #
+              # # # # #
+               # # # # #
+              # # # # #
+        </pre>
+        <button onclick="init_4_e(); return false;" >Выполнить 4е задание</button>
+    </div>
+    <hr>
 </body>
 <script>
     function init_1_e(){
@@ -95,11 +109,14 @@
     function init_3_e(){
         for (var i = 0; i < 10; i++) {
             var string = ''
-            for (var j = 0; j <= i; j++) {
-              string += '#'
-            }
+            for (var j = 0; j <= i; j++) { string += '#' }
             console.log(string)
         }
+    }
+    
+    function init_4_e(){
+        var i = 0, string = '# # # # #'
+        while(i < 7) { console.log( i++ % 2 === 0 ? string : ' ' + string) }
     }
 </script>
 </html>
