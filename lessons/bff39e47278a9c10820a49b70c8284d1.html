@@ -61,6 +61,20 @@
         <button onclick="init_4_e(); return false;" >Выполнить 4е задание</button>
     </div>
     <hr>
+    <div>
+        <pre>
+            5. Create “Guess number” game.
+              - Create variable for random number (from 0 to 100) and set it using Math.random()
+                // tip: Math.random() returns number from 0 to 1, so you have to 
+                // multiply it by 100 and then convert result to integer.
+              - Ask user (with prompt) to guess the number
+              - If entered number doesn’t equal to our variable, alert “Our number is higher, try again” or “Our number is lower, try again”. Then ask user to enter number again.
+              - If user guessed the number, show message “You are right, the number is [number]”.
+
+        </pre>
+        <button onclick="init_5_e(); return false;" >Выполнить 5е задание</button>
+    </div>
+    <hr>
 </body>
 <script>
     function init_1_e(){
@@ -117,6 +131,24 @@
     function init_4_e(){
         var i = 0, string = '# # # # #'
         while(i < 7) { console.log( i++ % 2 === 0 ? string : ' ' + string) }
+    }
+    
+    function init_5_e(){
+        var number = Math.ceil(Math.random()*100),
+            confirm_text = 'You are right, the number is '+ number+'<br> Try Again?';
+        while(true){
+            own_numer = Number(prompt('Please enter the number'))
+            if (isNaN(own_numer)) {
+                continue;
+            } else if (own_numer > number){
+                alert('Our number is higher, try again')
+            } else if (own_numer < number){
+                alert('Our number is lower, try again')
+            } else if (own_numer === number){ 
+                if (confirm(confirm_text)) init_5_e(); 
+                break;
+            }
+        }
     }
 </script>
 </html>
