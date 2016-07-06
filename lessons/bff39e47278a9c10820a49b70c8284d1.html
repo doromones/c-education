@@ -30,6 +30,23 @@
         <button onclick="init_2_e(); return false;" >Выполнить 2е задание</button>
     </div>
     <hr>
+    <div>
+        <pre>
+            3. Show in console using FOR.
+              #
+              ##
+              ###
+              ####
+              #####
+              ######
+              #######
+              ########
+              #########
+              ##########
+        </pre>
+        <button onclick="init_3_e(); return false;" >Выполнить 3е задание</button>
+    </div>
+    <hr>
 </body>
 <script>
     function init_1_e(){
@@ -73,6 +90,16 @@
         string = 'The distance between points A('+object['x1']['value']+','+object['y1']['value']+') and B('+object['x2']['value']+','+object['y2']['value']+') is ' +result
         console.log(string)
         alert(string)
+    }
+    
+    function init_3_e(){
+        for (var i = 0; i < 10; i++) {
+            var string = ''
+            for (var j = 0; j <= i; j++) {
+              string += '#'
+            }
+            console.log(string)
+        }
     }
 </script>
 </html>
