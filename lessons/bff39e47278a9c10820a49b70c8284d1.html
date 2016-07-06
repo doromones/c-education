@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title> hometask-lecture-Introduction-to-JS </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div>
+        <pre>
+            1. Prepare and show message in console.
+              - Create variables for person name, time, place and event
+              - Event should be entered using prompt
+              // tip: var smth = prompt("Please enter value", "Default value");
+              - Other variables should be set as you wish
+              - Join all values to one sentence and show it in console
+            // example: Valera has a meeting today at 17:00 somewhere in Warsaw.
+        </pre>
+        <button onclick="init_1_e(); return false;" >Выполнить 1е задание</button>
+    </div>
+    <hr>
+</body>
+<script>
+    function init_1_e(){
+        var string = null;
+        var object = {
+            user_name: {value: null, d_value: 'Valera', prompt: 'Please enter User name'}, 
+            time:      {value: null, d_value: 'today at 17:00', prompt: 'Please enter Event Time'},  
+            place:     {value: null, d_value: 'somewhere in Warsaw', prompt: 'Please enter Event Place'}, 
+            event:     {value: null, d_value: 'has a meeting', prompt: 'Please enter Event Name'},
+        };
+        for(el in object) {
+            while(!object[el]['value']) { 
+                object[el]['value'] = prompt(object[el]['prompt'], object[el]['d_value']);
+            }
+        }
+        string = Object.keys(object).map(function(k){return object[k]['value']}).join(' ')
+        console.log(string)
+        alert(string)
+    }
+</script>
+</html>
