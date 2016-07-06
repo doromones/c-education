@@ -137,7 +137,7 @@
         var number = Math.ceil(Math.random()*100),
             confirm_text = 'You are right, the number is '+ number+'<br> Try Again?';
         while(true){
-            own_numer = Number(prompt('Please enter the number'))
+            var own_numer = Number(prompt('Please enter the number'))
             if (isNaN(own_numer)) {
                 continue;
             } else if (own_numer > number){
